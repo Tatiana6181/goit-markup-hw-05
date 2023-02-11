@@ -33,6 +33,11 @@
   --h-trd-hght: calc(24 / 20);
   --let-sps-thr: 0.03em;
   --ln-hght-m: calc(24 / 16);
+
+  /* Overlay */
+  --ov-time: 250ms;
+  --ov-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+  --ov-trans: transform;
 }
 
 body {
@@ -122,6 +127,7 @@ img {
 .header-link:hover,
 .header-link:focus {
   color: var(--pressed-state);
+  transition: var(--ov-trans, --ov-time, --ov-cubic);
 }
 .header-link.current::after { 
   content: "";
@@ -130,7 +136,6 @@ img {
   display: block;
   width: 100%;
   height: 4px;
-  
   border-radius: 2px;
   background-color: var(--pressed-state);
 }
@@ -157,6 +162,7 @@ img {
 .adress-tel:hover,
 .adress-tel:focus {
   color: var(--pressed-state);
+  transition: var(--ov-time, --ov-cubic);
 }
 
 /*  Hero section  */
@@ -207,6 +213,7 @@ img {
 .hero-order:hover,
 .hero-order:focus {
   background-color: var(--pressed-state);
+  transition: var(--ov-trans, --ov-time, --ov-cubic);
 }
 
 /* Our Features */
@@ -357,6 +364,7 @@ img {
 .team-social-link:hover,
 .team-social-link:focus {
   background-color: var(--success);
+  transition: var(--ov-trans, --ov-time, --ov-cubic);
 }
 .team-social-icon {
   width: 16px;
@@ -410,6 +418,7 @@ img {
 .customers-link:focus {
   border: 2px solid var(--pressed-state);
   color: var(--pressed-state);
+  transition: var(--ov-trans, --ov-time, --ov-cubic);
 }
 
 /* Footer */
@@ -479,6 +488,7 @@ img {
 .social-link:hover,
 .social-link:focus {
   background-color: var(--success);
+  transition: var(--ov-trans, --ov-time, --ov-cubic);
 }
 .soc-media {
   color: var(--bgd-w);
@@ -511,6 +521,7 @@ img {
   background: var(--pressed-state);
   color: var(--bgd-w);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: var(--ov-time, --ov-cubic);
 }
 
 /* Portfolio */
@@ -560,11 +571,38 @@ img {
 .portfolio-item a:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+    transition: var(--ov-trans, --ov-time, --ov-cubic);
+}
+.portfolio-link {
+  display: block;
 }
 a .portfolio-img:hover {
   background: var(--pressed-state);
 }
-
+.portfolio-list-wrapper {
+position: relative;
+overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transform: translate(0, 100%);
+  transition: transform 400ms linear;
+  color: var(--light);
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: var(--primary-brand);
+  line-height: 24px;
+}
+.portfolio-link:hover .overlay,
+.portfolio-link:focus .overlay {
+  transform: translate(0, 0);
+}
 /* Modal window */
 .backdrop {
 position: fixed;

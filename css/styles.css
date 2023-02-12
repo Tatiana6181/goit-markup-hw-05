@@ -79,14 +79,13 @@ img {
   margin-left: auto;
   margin-right: auto;
   border-bottom: 1px solid;
-  padding-top: 24px;
-  padding-bottom: 23px;
 }
 .prf-header {
   border-bottom: 1px solid var(--accent);
 }
 .hdr-main {
   display: flex;
+  align-items: center;
 }
 .header-nav {
   margin-right: auto;
@@ -116,6 +115,8 @@ img {
 .header-link {
   font-weight: var(--h-trd-wght);
   line-height: var(--ln-hght-m);
+  padding: 24px 0;
+  display: block;
   color: var(--hero-bgd-d);
   transition: color var(--trns-hover);
 }
@@ -127,12 +128,16 @@ img {
 .header-link.current::after {
   content: '';
   position: absolute;
-  bottom: -23px;
+  left: 0;
+  bottom: 0;
   display: block;
   width: 100%;
   height: 4px;
   border-radius: 2px;
   background-color: var(--pressed-state);
+}
+.current {
+  color: var(--pressed-state);
 }
 .adress-item {
   margin-right: 40px;
@@ -307,8 +312,7 @@ img {
 }
 .team-item {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16), 
-    0px 2px 1px rgba(46, 47, 66, 0.08);
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 0px 0px 4px 4px;
   background-color: var(--bgd-w);
 }
@@ -360,7 +364,7 @@ img {
 }
 .team-social-link:hover,
 .team-social-link:focus {
-  background-color: var(--success);
+  background-color: var(--pressed-state);
 }
 .team-social-icon {
   width: 16px;
@@ -401,8 +405,7 @@ img {
   border: 1px solid var(--subtle-text);
   border-radius: 4%;
   color: var(--subtle-text);
-  transition: color var(--trns-hover), 
-  border var(--trns-hover);
+  transition: color var(--trns-hover), border var(--trns-hover);
 }
 
 .customers-icon {
@@ -511,13 +514,12 @@ img {
   border-radius: 4px;
   cursor: pointer;
   padding: 12px 24px;
-  transition: backgroud var(--trns-hover), 
-    color var(--trns-hover),
+  transition: background-color var(--trns-hover), color var(--trns-hover),
     box-shadow var(--trns-hover);
 }
 .button-btn:hover,
 .button-btn:focus {
-  background: var(--pressed-state);
+  background-color: var(--pressed-state);
   color: var(--bgd-w);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
@@ -643,6 +645,7 @@ a .portfolio-img:hover {
   height: 24px;
   border-radius: 50%;
   background-color: var(--accent);
+  cursor: pointer;
 }
 .modal-icon {
 }
